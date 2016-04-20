@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src='tinymce.min.js'></script>
+  <script>
+    tinymce.init({
+      selector: '#mytextarea',
+      theme: 'modern',
+      skin: 'charcoal',
+      plugins: [
+        'advlist autoresize autolink lists link image charmap print preview hr anchor pagebreak',
+        'searchreplace wordcount visualblocks visualchars code fullscreen',
+        'insertdatetime media nonbreaking save table contextmenu directionality',
+        'emoticons template paste textcolor colorpicker textpattern imagetools'
+      ],
+      toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+      toolbar2: 'print preview media | forecolor backcolor emoticons',
+      image_advtab: true,
+      templates: [
+        { title: 'Test template 1', content: 'Test 1' },
+        { title: 'Test template 2', content: 'Test 2' }
+      ],
+      content_css: [
+        // '//fast.fonts.net/cssapi/e6dc9b99-64fe-4292-ad98-6974f93cd2a2.css',
+        // '//www.tinymce.com/css/codepen.min.css',
+        'dark.css'
+      ],
+      body_class: "mceBlackBody"
+     });
+  </script>
+<script>
+    // function doresize(){
+    //     var ht = window.innerHeight;
+    //     console.log("ht = " + ht);
+
+    //     if (document.getElementsByClassName('mce-toolbar-grp')){
+    //         ht += -document.getElementsByClassName('mce-toolbar-grp')[0].offsetHeight;
+    //         ht += -document.getElementsByClassName('mce-toolbar-grp')[0].offsetTop;
+    //         console.log("ht = " + ht);
+    //     }
+    //     if (document.getElementsByClassName('mce-statusbar')){
+    //         ht += -document.getElementsByClassName('mce-statusbar')[0].offsetHeight;
+    //         console.log("ht = " + ht);
+    //     }
+
+    //     ht += -3; // magic value that changes depending on your html and body margins
+
+    //     if (document.getElementsByClassName('mce-edit-area')){
+    //         document.getElementsByClassName('mce-edit-area')[0].style.height = ht + "px";
+    //         console.log("ht = " + ht);
+    //         // document.getElementsByClassName('mce-edit-area')[0].style.width = window.innerWidth;
+    //     }
+    // }
+
+    // window.onresize=doresize;
+    // window.onload=doresize;
+
+
+</script>
+
+</head>
+
+<body>
+  <form method="post">
+    <textarea id="mytextarea"></textarea>
+  </form>
+</body>
+</html>
