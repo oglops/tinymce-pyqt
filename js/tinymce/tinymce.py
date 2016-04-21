@@ -14,13 +14,27 @@ class MyWindow(QtGui.QDialog):
 
     def __init__(self, parent=None):
         super(MyWindow, self).__init__(parent)
-        self.layout = QtGui.QVBoxLayout()
-        self.layout.setContentsMargins(0, 0, 0, 0)
-        self.webview = QtWebKit.QWebView()
-        self.layout.addWidget(self.webview)
-        self.setLayout(self.layout)
+        layout = QtGui.QVBoxLayout()
+        layout.setContentsMargins(0, 0, 0, 0)
+        webView = QtWebKit.QWebView()
 
-        self.webview.load(
+        webInspector = QtWebKit.QWebInspector(self)
+        page = webView.page()
+        page.settings().setAttribute(
+            QtWebKit.QWebSettings.DeveloperExtrasEnabled, True)
+        webInspector.setPage(page)
+        webInspector.setVisible(True)
+
+        splitter = QtGui.QSplitter(self)
+        splitter.addWidget(webView)
+        splitter.addWidget(webInspector)
+        splitter.setSizes([3, 0])
+
+        layout.addWidget(splitter)
+
+        self.setLayout(layout)
+
+        webView.load(
             QtCore.QUrl(os.path.join(os.path.dirname(__file__), 'index.html')))
 
         self.resize(950, 500)
